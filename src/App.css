@@ -1,38 +1,150 @@
-.App {
+main {
+  background-color: #282c34;
+  min-height: 80vh;
+  font-size: calc(10px + 2vmin);
+}
+
+.card-collection {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+}
+
+.standout {
+  box-shadow: 5px 5px goldenrod;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-size: 1.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+h2 {
+  font-size: 1.25rem;
+}
+
+h3 {
+  font-size: 0.875rem;
+}
+
+h4 {
+  font-size: 0.7rem;
+}
+
+p {
+  font-size: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+@media screen and (min-width:600px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  h4 {
+    font-size: 0.875rem;
+  }
+
+  p{
+    font-size: 0.75rem;
+  }
+
+  .card-collection {
+    display: grid;
+    grid-template-columns: ifr ifr;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
+
+@media screen and (min-width: 800px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+p{
+  font-size: 0.875rem;
 }
 
-.App-link {
-  color: #61dafb;
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+
+  .card-collection {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (min-width: 1300px) {
+  h1 {
+    font-size: 4rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  h2 {
+    font-size: 2.5rem;
   }
+
+  h3 {
+    font-size: 1.75rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+p{
+  font-size: 0.875rem;
+}
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    line-height: 1;
+  }
+
+  .card-collection {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+
 }

@@ -1,62 +1,63 @@
-import logo from './logo.svg';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './components/Header';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Employees from './components/Employees';
+import GroupedTeamMembers from './components/GroupedTeamMembers';
+import NotFound from './components/NotFound';
+import employeeMember from './data';
+import { useState, useEffect } from "react";
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 function App() {
+  const [employees, setEmployees] = useState(JSON.parse(localStorage.getItem('employeeList')) || employeeMember);
+  const [team, setTeam] = useState(JSON.parse(localStorage.getItem('selectedTeam')) || 'TeamA');
+  
+  const handleChange = (e) => {
+    setTeam(e.target.value);
+  }
+  const handleClick = (e) => {
+    const teamMemeberSelected = employees.map(
+      (employee)=>employee.id === parseInt(e.currentTarget.id)
+        ?(employee.teamName === team)
+        ?{...employee, teamName: ''} 
+        :{...employee, teamName:team}
+        :employee
+    ) 
+    setEmployees(teamMemeberSelected);
+  }
+  
+  useEffect(()=>{
+    localStorage.setItem('employeeList', JSON.stringify(employees));
+  },[employees]);
+  useEffect(()=>{
+    localStorage.setItem('selectedTeam', JSON.stringify(team));
+  },[team]);
+  
   return (
-    <div className="App">
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"/></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-              <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-          </div>
-        </div>
-      </nav>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h1>Team Allocation</h1>
-          <button className='btn bg-light mt-3'>Click Button</button>
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar />
+      <main>
+      <Header team={team}
+        teamCount={employees.filter((employee)=>employee.teamName === team).length}
+        />
+      <Routes>
+        <Route path='/'
+          element={<Employees employees={employees} team={team} 
+          handleChange={handleChange} handleClick = {handleClick} />}>
+        </Route>
+        <Route path='/GroupedTeamMembers'
+          element={<GroupedTeamMembers employees={employees} selectTeam={team} 
+          setTeam={setTeam} />}>
+        </Route>
+        <Route path='*'
+          element={<NotFound />}
+          >
+        </Route>
+      </Routes>
+      </main>
+      <Footer />
+    </Router>
   );
 }
 
