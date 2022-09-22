@@ -12,19 +12,21 @@ const Employees = ({ employees, team, handleChange, handleClick }) => {
                 <div className='col-8 '>
                     <div className='card-collection'>
                         {
-                            employees.map((emp) => (
-                                <div key={emp.id} id={emp.id}
-                                    className={(emp.teamName === team ? 'card m-2 standout' : 'card m-2')}
+                            employees.map((emp) => {
+                                const {id, teamName, img, fullName, designation} = emp;
+                                return (
+                                <div key={id} id={id}
+                                    className={(teamName === team ? 'card m-2 standout' : 'card m-2')}
                                     style={{ cursor: 'pointer' }}
                                     onClick={handleClick}>
-                                    <img src={emp.img} className='card-img-top' /> 
+                                    <img src={img} className='card-img-top' /> 
                                     <div className='card-body'>
-                                        <h5>{emp.fullName}</h5>
-                                        <p>{emp.designation}</p>
+                                        <h5>{fullName}</h5>
+                                        <p>{designation}</p>
                                     </div>
                                 </div>
                             )
-                            )
+                            })
                         }
                     </div>
                 </div>

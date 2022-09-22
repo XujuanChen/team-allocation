@@ -11,7 +11,7 @@ const Navbar = () => {
                             <Link className='nav-link active' to='/'> Home </Link>
                         </li>
                         <li class="nav-item">
-                            <Link className='nav-link active' to='/GroupedTeamMembers'>Teams</Link>
+                            <Link className='nav-link active' to='/GroupedTeamMembers'> Teams </Link>
                         </li>
                     </ul>
                     <form class="d-flex" role="search">

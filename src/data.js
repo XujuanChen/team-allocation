@@ -6,7 +6,7 @@ const employeeMember = [
         img: './images/male_1.jpg',
         designation: "JavaScript Developer",
         gender: "male",
-        teamName: "TeamA"
+        teamName: "A"
     },
     {
         id: 2,
@@ -14,7 +14,7 @@ const employeeMember = [
         img: './images/female_1.jpg',
         designation: "Node Developer",
         gender: "female",
-        teamName: "TeamA"
+        teamName: "A"
     },
     {
         id: 3,
@@ -22,7 +22,7 @@ const employeeMember = [
         img: './images/female_2.jpg',
         designation: "Java Developer",
         gender: "female",
-        teamName: "TeamA"
+        teamName: "A"
     },
     {
         id: 4,
@@ -30,7 +30,7 @@ const employeeMember = [
         img: './images/male_2.jpg',
         designation: "React Developer",
         gender: "male",
-        teamName: "TeamB"
+        teamName: "B"
     },
     {
         id: 5,
@@ -38,7 +38,7 @@ const employeeMember = [
         img: './images/male_3.jpg',
         designation: "DotNet Developer",
         gender: "male",
-        teamName: "TeamB"
+        teamName: "B"
     },
     {
         id: 6,
@@ -46,7 +46,7 @@ const employeeMember = [
         img: './images/female_3.jpg',
         designation: "SQL Server DBA",
         gender: "female",
-        teamName: "TeamB"
+        teamName: "B"
     },
     {
         id: 7,
@@ -54,7 +54,7 @@ const employeeMember = [
         img: './images/male_4.jpg',
         designation: "Angular Developer",
         gender: "male",
-        teamName: "TeamC"
+        teamName: "C"
     },
     {
         id: 8,
@@ -62,7 +62,7 @@ const employeeMember = [
         img: './images/male_5.jpg',
         designation: "API Developer",
         gender: "female",
-        teamName: "TeamC"
+        teamName: "C"
     },
     {
         id: 9,
@@ -70,7 +70,7 @@ const employeeMember = [
         img: './images/female_4.jpg',
         designation: "C++ Developer",
         gender: "female",
-        teamName: "Team C"
+        teamName: "C"
     },
     {
         id: 10,
@@ -78,7 +78,7 @@ const employeeMember = [
         img: './images/female_5.jpg',
         designation: "Python Developer",
         gender: "male",
-        teamName: "TeamD"
+        teamName: "D"
     },
     {
         id: 11,
@@ -86,7 +86,7 @@ const employeeMember = [
         img: './images/male_6.jpg',
         designation: "Vue Developer",
         gender: "male",
-        teamName: "TeamD"
+        teamName: "D"
     },
     {
         id: 12,
@@ -94,7 +94,7 @@ const employeeMember = [
         img: './images/male_7.jpg',
         designation: "Graphic Designer",
         gender: "male",
-        teamName: "TeamD"
+        teamName: "D"
     }
 ]
 

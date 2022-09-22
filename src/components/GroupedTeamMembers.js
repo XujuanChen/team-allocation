@@ -20,13 +20,14 @@ const GroupedTeamMembers = ({ employees, selectTeam, setTeam }) => {
                 <div className='col-8 mb-3'>
                     {
                         groupedEmployees.map((item) => {
+                            const {team, collapsed} = item;
                             return (
-                                <div key={item.team} className='card mt-2' style={{ cursor: 'pointer' }}>
-                                    <h4 id={item.team} className='card-header text-secondary' onClick={handleClick}>
-                                        {item.team}
+                                <div key={team} className='card mt-2' style={{ cursor: 'pointer' }}>
+                                    <h4 id={team} className='card-header text-secondary' onClick={handleClick}>
+                                        Team {team}
                                     </h4>
-                                    <div id={'collapse_' + item.team}
-                                        className={item.collapsed === true ? 'collapse' : ''}>
+                                    <div id={'collapse_' + team}
+                                        className={collapsed === true ? 'collapse' : ''}>
                                         {
                                             item.members.map((member) => {
                                                 return (
